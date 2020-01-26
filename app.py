@@ -81,7 +81,7 @@ def error_handle(error_message, status=500, mimetype='application/json'):
 
 
 # /
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home_page():
     output = "Hello Flask API"
     return success_handle(output)
