@@ -82,7 +82,7 @@ def error_handle(error_message, status=500, mimetype='application/json'):
 
 # /
 @app.route('/', methods=['GET'])
-def api_version():
+def home_page():
     output = "Hello Flask API"
     return success_handle(output)
 
@@ -143,4 +143,4 @@ def encodeB64():
 
 # Run the app
 if __name__ == '__main__':
-app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True)
