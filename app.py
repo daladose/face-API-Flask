@@ -136,8 +136,9 @@ def encodeB64():
 
 # A welcome message to test our server
 @app.route('/')
-def index():
-    return "<h1>Welcome to our server !!</h1>"
+def homepage():
+    # Return a Jinja2 HTML template and pass in image_entities as a parameter.
+    return render_template('homepage.html')
 
 
 # Run the app
