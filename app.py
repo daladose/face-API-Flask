@@ -10,6 +10,7 @@ from recognizer import Recognizer
 
 app = Flask(__name__)
 
+
 app.config['file_allowed'] = ['image/png', 'image/jpeg']
 app.config['storage'] = path.join(getcwd(), 'storage')
 app.config['after_crop_image'] = path.join(getcwd(), 'storage/croped_images')
@@ -80,13 +81,6 @@ def error_handle(error_message, status=500, mimetype='application/json'):
     return Response(json.dumps({"error": {"message": error_message}}), status=status, mimetype=mimetype)
 
 
-# /
-@app.route('/')
-def home_page():
-    output = "Hello Flask API"
-    return success_handle(output)
-
-
 # api version
 @app.route('/api', methods=['GET'])
 def api_version():
@@ -139,6 +133,11 @@ def encodeB64():
     str = encode_base64("obama.jpg")
     print(encode_base64("obama.jpg"))
     return str
+
+# A welcome message to test our server
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"
 
 
 # Run the app
